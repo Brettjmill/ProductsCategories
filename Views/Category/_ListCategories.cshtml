@@ -1,0 +1,16 @@
+@model List<Category>
+
+<div class="container">
+    <h3>Existing Categories</h3>
+    <br>
+    <div>
+        <ul>
+            @foreach (Category category in ViewBag.AllCategories)
+            {
+                <li>
+                    <a asp-controller="Category" asp-action="CategoryDetails" asp-route-categoryId="@category.CategoryId">@category.Name</a>
+                </li>                
+            }
+        </ul>
+    </div>    
+</div>

@@ -1,0 +1,16 @@
+@model List<Product>
+
+<div class="container">
+    <h3>Existing Products</h3>
+    <br>
+    <div>
+        <ul>
+            @foreach (Product product in ViewBag.AllProducts)
+            {
+                <li>
+                    <a asp-controller="Product" asp-action="ProductDetails" asp-route-productId="@product.ProductId">@product.Name</a>
+                </li>                
+            }
+        </ul>
+    </div>    
+</div>

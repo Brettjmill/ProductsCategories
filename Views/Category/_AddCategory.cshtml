@@ -1,0 +1,17 @@
+@model Category
+
+<div class="container">
+    <h3>New Category</h3>
+    <br>
+    <div>
+        <form asp-controller="Category" asp-action="AddCategory" class="shadow p-3 rounded" method="POST">
+        <div class="form-group">
+          <label asp-for="Name"></label>
+          <span asp-validation-for="Name" class="text-danger font-weight-bold"></span>
+          <input asp-for="Name" class="form-control">
+        </div>
+
+        <button class="btn btn-outline-success">Create</button>
+      </form>
+    </div>
+</div>

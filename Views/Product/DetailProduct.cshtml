@@ -1,0 +1,38 @@
+@model Product
+
+<h3>@Model.Name</h3>
+
+<hr>
+
+<h4>Categories:</h4>
+<ul>
+    @foreach(Association assoc in Model.Associations)
+    {
+        <li>@assoc.Category.Name</li>
+    }
+</ul>
+
+<hr>
+
+<h4>Add Category:</h4>
+<form action="/products/addCat" method="POST">
+    <input type="hidden" name="ProductId" value="@Model.ProductId">
+    <select name="CategoryId" id="">
+        @foreach(Category category in ViewBag.UnusedCategories)
+        {
+            <option value="@category.CategoryId">@category.Name</option>
+        }
+    </select>
+    <button type="submit">Add</button>
+</form>
+
+
+@* <form asp-controller="Product" asp-action="AddCategory" asp-route-postId="@Model.ProductId">
+    <select name="CategoryId" id="">
+        @foreach(Category category in ViewBag.AllCategories)
+        {
+            <option value="{@category.CategoryId}">@category.Name</option>
+        }
+    </select>
+    <button type="Submit">Add</button>
+</form> *@

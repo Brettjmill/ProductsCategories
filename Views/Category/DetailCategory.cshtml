@@ -1,0 +1,27 @@
+@model Category
+
+<h3>@Model.Name</h3>
+
+<hr>
+
+<h4>Products:</h4>
+<ul>
+    @foreach(Association assoc in Model.Associations)
+    {
+        <li>@assoc.Product.Name</li>
+    }
+</ul>
+
+<hr>
+
+<h4>Add Product:</h4>
+<form action="/categories/addProd" method="POST">
+    <input type="hidden" name="CategoryId" value="@Model.CategoryId">
+    <select name="ProductId" id="">
+        @foreach(Product product in ViewBag.UnusedProducts)
+        {
+            <option value="@product.ProductId">@product.Name</option>
+        }
+    </select>
+    <button type="submit">Add</button>
+</form>
